@@ -1,0 +1,34 @@
+<br>
+<br>
+<br>
+<div class="container main-container">
+
+    <h1>Novo Autor</h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form novalidate="novalidate" (ngSubmit)="adicionarAutor()" [formGroup]="autorForm">
+
+                <div class="form-group">
+                    <label class="control-label">Código</label>
+                    <div>
+                        <input class="form-control" id="codigo" type="text" placeholder="Código (requerido)" formControlName="codigo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nome</label>
+                    <div>
+                        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" [routerLink]="[ '/lista-autor']">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

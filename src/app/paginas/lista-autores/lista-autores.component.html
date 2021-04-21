@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<div class="container main-container">
+
+  <h1>Lista de Autores</h1>
+
+  <p>
+      <a class="btn btn-info" [routerLink]="['/novo-autor']">Novo Autor</a>
+  </p>
+
+  <table class="table table-hover">
+      <thead class="thead-dark">
+          <tr>
+              <th>Código</th>
+              <th>Nome</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tr *ngFor="let autor of autores">
+          <td>
+              {{ autor.codigo }}
+          </td>
+          <td>
+              {{autor.nome }}
+          </td>
+          <td class="text-right">
+              <a class="btn btn-info" [routerLink]="['/fornecedores/detalhes', autor.id]">
+                  <span class="fa fa-search"></span>
+              </a>&nbsp;
+              <a class="btn btn-warning" [routerLink]="['/fornecedores/editar', autor.id]">
+                  <span class="fa fa-pencil-alt"></span>
+              </a>&nbsp;
+              <a class="btn btn-danger" [routerLink]="['/fornecedores/excluir', autor.id]">
+                  <span class="fa fa-trash"></span>
+              </a>
+          </td>
+      </tr>
+  </table>
+</div>

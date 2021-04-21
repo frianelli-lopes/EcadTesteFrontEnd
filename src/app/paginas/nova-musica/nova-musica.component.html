@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+<div class="container main-container">
+
+    <h1>Nova Música</h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form novalidate="novalidate" (ngSubmit)="adicionarMusica()" [formGroup]="musicaForm">
+
+                <div class="form-group">
+                    <label class="control-label">Código</label>
+                    <div>
+                        <input class="form-control" id="codigo" type="text" placeholder="Código (requerido)" formControlName="codigo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nome</label>
+                    <div>
+                        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Gênero</label>
+                    <div>
+                        <select id="genero" class="form-control" formControlName="idGenero">
+                            <option *ngFor="let genero of generos" value="{{genero.id}}">{{ genero.nome }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" [routerLink]="[ '/lista-musica']">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
