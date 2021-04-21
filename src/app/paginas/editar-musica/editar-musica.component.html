@@ -28,14 +28,14 @@
                 <div class="form-group">
                     <label class="control-label">Gênero</label>
                     <div>
-                        <select id="genero" formControlName="idGenero">
-                            <option value="297eafd1-3c79-472f-ac4d-1a84bc273e16">Pagode</option>
+                        <select id="genero" class="form-control" formControlName="idGenero">
+                            <option *ngFor="let genero of generos" value="{{genero.id}}">{{ genero.nome }}</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <input type="submit" value="Editar" class="btn btn-primary">&nbsp;
                     <a class="btn btn-info" [routerLink]="[ '/lista-musica']">Voltar</a>
                 </div>
             </form>

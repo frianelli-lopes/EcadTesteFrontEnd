@@ -3,7 +3,9 @@ import { FormBuilder, FormControlName, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { Genero } from 'src/app/models/genero';
 import { Musica } from 'src/app/models/musica';
+import { GeneroService } from 'src/app/services/genero.service';
 import { MusicaService } from 'src/app/services/musica.service';
 
 @Component({
@@ -16,9 +18,11 @@ export class EditarMusicaComponent implements OnInit {
 
   musicaForm: FormGroup;
   musica: Musica = new Musica();
+  generos: Genero[] = [];
 
   constructor(private fb: FormBuilder,
     private musicaService: MusicaService,
+    private generoService: GeneroService,
     private router: Router,
     private route: ActivatedRoute) {
   }
@@ -43,10 +47,22 @@ export class EditarMusicaComponent implements OnInit {
       nome: [this.musica.nome],
       idGenero: [this.musica.idGenero]
     });
+
+    this.carregarGeneros();
   }
 
   updateForm(musica: Musica) {
     this.musicaForm.patchValue({ ...musica });
+  }
+
+  carregarGeneros() {
+    this.generoService.obterGeneros()
+    .subscribe(
+      generos => {
+        this.generos = generos;
+      },
+      error => console.log(error)
+    );    
   }
 
   editarMusica() {
