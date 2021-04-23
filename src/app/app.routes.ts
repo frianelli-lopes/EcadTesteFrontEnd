@@ -8,7 +8,7 @@ import { NovoAutorComponent } from './paginas/novo-autor/novo-autor.component';
 import { SobreComponent } from './paginas/sobre/sobre.component';
 
 export const rootRouterConfig : Routes = [
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: '', redirectTo: '/lista-musica', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'lista-autor', component: ListaAutoresComponent},
     {path: 'novo-autor', component: NovoAutorComponent},
